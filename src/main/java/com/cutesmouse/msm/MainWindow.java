@@ -164,7 +164,6 @@ public class MainWindow extends JFrame {
             ioException.printStackTrace();
         }
     }
-
     private void deopCMD(ActionEvent e) {
         String s = JOptionPane.showInputDialog(this, "請輸入要移除權限的對象", "移除管理員",JOptionPane.PLAIN_MESSAGE);
         if (s == null) return;

@@ -46,12 +46,15 @@ public class Main {
     public static void appendLine(String s) {
         appendLine(s,null,true);
     }
-    private static String INFO = "";
+    private static ArrayList<String> INFO = new ArrayList<>();
     public static void appendLine(String s, Color c, boolean line) {
         if(t== null) return;
         s = "<font face=\"微軟正黑體\" size=5"+(c != null ? " color=\"rgb("+c.getRed()+","+c.getGreen()+","+c.getBlue()+"\"" : "")+">"+s+"</font>";
-        INFO += s.replace("\n","<br>")+(line ? "<br>" : "");
-        t.getLabel1().setText("<html>"+INFO+"</html>");
+        INFO.add(s.replace("\n","<br>")+(line ? "<br>" : ""));
+        while (INFO.size() > 150) {
+            INFO.remove(0);
+        }
+        t.getLabel1().setText("<html>"+ String.join("", INFO) +"</html>");
     }
     private static BufferedWriter output;
     public static void command(String s) throws IOException {
