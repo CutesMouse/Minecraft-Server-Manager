@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.filechooser.FileFilter;
 
 /**
  * @author CutesMouse
@@ -84,11 +85,34 @@ public class MainWindow extends JFrame {
             return;
         }
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
+        fc.setFileFilter(new FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                String fn = f.getName();
+                if (fn.equals("plugins")) return false;
+                if (fn.equals("logs")) return false;
+                if (fn.equals("cache")) return false;
+                if (fn.equals("crash-reports")) return false;
+                if (fn.equals("timings")) return false;
+                if (fn.matches(".*?_nether$")) return false;
+                if (fn.matches(".*?_the_end$")) return false;
+                return true;
+            }
+
+            @Override
+            public String getDescription() {
+                return "過濾系統資料夾";
+            }
+        });
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int flag = fc.showOpenDialog(this);
         if (flag == JFileChooser.OPEN_DIALOG) {
             File f = fc.getSelectedFile();
             if (f == null) return;
+            if (!f.getParentFile().getPath().equals(System.getProperty("user.dir"))) {
+                JOptionPane.showMessageDialog(this,"你無法選擇與插件目錄不相同的資料夾!","錯誤",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             try {
                 ArrayList<String> properties = new ArrayList<>(Files.readAllLines(prop.toPath())).stream().map(s -> {
                     if (s.startsWith("level-name=")) {
@@ -124,7 +148,7 @@ public class MainWindow extends JFrame {
 
     private void pluginCMD(ActionEvent e) {
         try {
-            Main.command("plugin");
+            Main.command("plugins");
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
