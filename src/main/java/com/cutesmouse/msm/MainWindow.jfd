@@ -1,0 +1,151 @@
+JFDML JFormDesigner: "7.0.2.0.298" Java: "11.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) {
+			"autoSize": false
+		} ) {
+			name: "this"
+			"title": "Minecraft Server Manager"
+			"iconImage": new com.jformdesigner.model.SwingIcon( 0, "/icon.png" )
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextPane" ) {
+					name: "CommandWindow"
+					"font": new java.awt.Font( "微軟正黑體", 0, 16 )
+					"contentType": "text/html"
+					"text": "<html>\r   <head>\r \r   </head>\r   <body>\r     <p style=\"margin-top: 0\">\r       \r     </p>\r   </body>\r </html>\r "
+					"editable": false
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 25
+				"y": 20
+				"width": 805
+				"height": 440
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Start"
+				"text": "開服"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 845
+				"y": 25
+				"width": 125
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Close"
+				"text": "關服"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 125
+				"height": 35
+				"x": 845
+				"y": 65
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "Command"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "SendCommand", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 25
+				"y": 465
+				"width": 805
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "ServerFolder"
+				"text": "伺服器資料夾"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "ServerFolderActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 125
+				"height": 35
+				"x": 845
+				"y": 455
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "Server"
+					"font": new java.awt.Font( "微軟正黑體", 0, 16 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 845
+				"y": 110
+				"width": 125
+				"height": 330
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "files"
+					"text": " 檔案(F) "
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem7"
+						"text": "切換地圖"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "addNewMap", true ) )
+					} )
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu5"
+						"text": "更改伺服器設定"
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseEntered", "loadPropItems", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separator3"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem6"
+						"text": "重新讀取伺服器檔案"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reloadServerFiles", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu2"
+					"text": " 指令(C) "
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem2"
+						"text": "查看伺服器人數"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "listCMD", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem3"
+						"text": "查看TPS"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "tpsCMD", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem4"
+						"text": "查看已安裝插件"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "pluginCMD", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separator1"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem5"
+						"text": "新增管理員"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "opCMD", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem8"
+						"text": "移除管理員"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deopCMD", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separator2"
+					} )
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu3"
+						"text": "白名單"
+					} )
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu4"
+						"text": "黑名單"
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 995, 505 )
+		} )
+	}
+}
