@@ -146,7 +146,6 @@ public class Main {
                 }
                 appendLine(s,Color.RED,true);
             }
-
         }).start();
         try {
             pc.waitFor();

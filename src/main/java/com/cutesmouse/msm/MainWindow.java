@@ -198,7 +198,6 @@ public class MainWindow extends JFrame {
                 item.addActionListener(p -> setProperties(property.split("=")[0]));
                 menu.add(item);
             }
-
         } catch (IOException ioException) {
             JOptionPane.showOptionDialog(this,"系統載入server.properties時發生錯誤!\n"+ioException.getLocalizedMessage(),"讀取錯誤!",
                     JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,null,0);
