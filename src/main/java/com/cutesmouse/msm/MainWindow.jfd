@@ -117,6 +117,11 @@ new FormModel {
 						"text": "查看已安裝插件"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "pluginCMD", true ) )
 					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem9"
+						"text": "伺服器重載"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reload", true ) )
+					} )
 					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
 						name: "separator1"
 					} )
@@ -140,6 +145,43 @@ new FormModel {
 					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
 						name: "menu4"
 						"text": "黑名單"
+					} )
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu6"
+						"text": "切換遊戲模式"
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem10"
+							"text": "生存模式"
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "gm_survival", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem11"
+							"text": "創造模式"
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem12"
+							"text": "冒險模式"
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem13"
+							"text": "觀察者模式"
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu7"
+						"text": "切換遊戲難度"
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separator4"
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": " 控制台(P)"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem1"
+						"text": "清空紀錄"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "clear", true ) )
 					} )
 				} )
 			}

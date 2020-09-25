@@ -49,11 +49,16 @@ public class Main {
     private static ArrayList<String> INFO = new ArrayList<>();
     public static void appendLine(String s, Color c, boolean line) {
         if(t== null) return;
-        s = "<font face=\"微軟正黑體\" size=5"+(c != null ? " color=\"rgb("+c.getRed()+","+c.getGreen()+","+c.getBlue()+"\"" : "")+">"+s+"</font>";
+        s = "<font face=\"微軟正黑體\" size=5"+(c != null ? " color=\"rgb("+c.getRed()+","+c.getGreen()+","+c.getBlue()+"\"" : "")+">"+
+                s.replace("<","&lt;").replace(">","&gt;")+"</font>";
         INFO.add(s.replace("\n","<br>")+(line ? "<br>" : ""));
         while (INFO.size() > 150) {
             INFO.remove(0);
         }
+        t.getLabel1().setText("<html>"+ String.join("", INFO) +"</html>");
+    }
+    public static void clear() {
+        INFO.clear();
         t.getLabel1().setText("<html>"+ String.join("", INFO) +"</html>");
     }
     private static BufferedWriter output;

@@ -204,6 +204,26 @@ public class MainWindow extends JFrame {
         }
     }
 
+    private void clear(ActionEvent e) {
+        Main.clear();
+    }
+
+    private void reload(ActionEvent e) {
+        try {
+            Main.command("reload");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    private void gm_survival(ActionEvent e) {
+        try {
+            Main.command("gamemode @a survival");
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -216,10 +236,19 @@ public class MainWindow extends JFrame {
         menuItem2 = new JMenuItem();
         menuItem3 = new JMenuItem();
         menuItem4 = new JMenuItem();
+        menuItem9 = new JMenuItem();
         menuItem5 = new JMenuItem();
         menuItem8 = new JMenuItem();
         menu3 = new JMenu();
         menu4 = new JMenu();
+        menu6 = new JMenu();
+        menuItem10 = new JMenuItem();
+        menuItem11 = new JMenuItem();
+        menuItem12 = new JMenuItem();
+        menuItem13 = new JMenuItem();
+        menu7 = new JMenu();
+        menu1 = new JMenu();
+        menuItem1 = new JMenuItem();
         scrollPane1 = new JScrollPane();
         CommandWindow = new JTextPane();
         Start = new JButton();
@@ -291,6 +320,11 @@ public class MainWindow extends JFrame {
                 menuItem4.setText("\u67e5\u770b\u5df2\u5b89\u88dd\u63d2\u4ef6");
                 menuItem4.addActionListener(e -> pluginCMD(e));
                 menu2.add(menuItem4);
+
+                //---- menuItem9 ----
+                menuItem9.setText("\u4f3a\u670d\u5668\u91cd\u8f09");
+                menuItem9.addActionListener(e -> reload(e));
+                menu2.add(menuItem9);
                 menu2.addSeparator();
 
                 //---- menuItem5 ----
@@ -315,8 +349,49 @@ public class MainWindow extends JFrame {
                     menu4.setText("\u9ed1\u540d\u55ae");
                 }
                 menu2.add(menu4);
+
+                //======== menu6 ========
+                {
+                    menu6.setText("\u5207\u63db\u904a\u6232\u6a21\u5f0f");
+
+                    //---- menuItem10 ----
+                    menuItem10.setText("\u751f\u5b58\u6a21\u5f0f");
+                    menuItem10.addActionListener(e -> gm_survival(e));
+                    menu6.add(menuItem10);
+
+                    //---- menuItem11 ----
+                    menuItem11.setText("\u5275\u9020\u6a21\u5f0f");
+                    menu6.add(menuItem11);
+
+                    //---- menuItem12 ----
+                    menuItem12.setText("\u5192\u96aa\u6a21\u5f0f");
+                    menu6.add(menuItem12);
+
+                    //---- menuItem13 ----
+                    menuItem13.setText("\u89c0\u5bdf\u8005\u6a21\u5f0f");
+                    menu6.add(menuItem13);
+                }
+                menu2.add(menu6);
+
+                //======== menu7 ========
+                {
+                    menu7.setText("\u5207\u63db\u904a\u6232\u96e3\u5ea6");
+                }
+                menu2.add(menu7);
+                menu2.addSeparator();
             }
             menuBar1.add(menu2);
+
+            //======== menu1 ========
+            {
+                menu1.setText(" \u63a7\u5236\u53f0(P)");
+
+                //---- menuItem1 ----
+                menuItem1.setText("\u6e05\u7a7a\u7d00\u9304");
+                menuItem1.addActionListener(e -> clear(e));
+                menu1.add(menuItem1);
+            }
+            menuBar1.add(menu1);
         }
         setJMenuBar(menuBar1);
 
@@ -387,10 +462,19 @@ public class MainWindow extends JFrame {
     private JMenuItem menuItem2;
     private JMenuItem menuItem3;
     private JMenuItem menuItem4;
+    private JMenuItem menuItem9;
     private JMenuItem menuItem5;
     private JMenuItem menuItem8;
     private JMenu menu3;
     private JMenu menu4;
+    private JMenu menu6;
+    private JMenuItem menuItem10;
+    private JMenuItem menuItem11;
+    private JMenuItem menuItem12;
+    private JMenuItem menuItem13;
+    private JMenu menu7;
+    private JMenu menu1;
+    private JMenuItem menuItem1;
     private JScrollPane scrollPane1;
     private JTextPane CommandWindow;
     private JButton Start;
